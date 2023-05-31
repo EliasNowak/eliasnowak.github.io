@@ -11,16 +11,6 @@ export const info = {
 
   experience: [
     {
-      name: "InterNative Labs, LLC",
-      location: "Karāchi, Sindh, Pakistan",
-      startDate: "Apr 2022",
-      endDate: "Present",
-      description: [
-        "- Developing screens and UI components for the web application using React and Tailwind.",
-        "- Fixing UI issues and integrating backend APIs with Redux Saga.",
-      ],
-    },
-    {
       name: "Magna",
       location: "Austria",
       startDate: "Jun 2021",
