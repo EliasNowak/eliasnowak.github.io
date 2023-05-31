@@ -1,6 +1,7 @@
 <<<<<<< HEAD
+
 # eliasnowak.github.io
-=======
+
 # Portfolio Website - Astro
 
 Just change `src/data/info.ts` to get your personal portfolio.
@@ -68,4 +69,5 @@ All commands are run from the root of the project, from a terminal:
 ## 👀 Want to learn more?
 
 Feel free to check [Astro documentation](https://docs.astro.build) or jump into Astro [Discord server](https://astro.build/chat).
->>>>>>> master
+
+> > > > > > > master
