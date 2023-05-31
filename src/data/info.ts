@@ -2,14 +2,11 @@ export const info = {
   baseUrl: "https://astro-portfolio-uzair.vercel.app",
   name: "Elias Nowak",
   jobDescription: "Web Developer",
-  about: `I'm a software engineer based in Karachi, Pakistan.
-   I enjoy creating things that live on the internet, whether that be websites, applications, or anything in between.
-   I have been working for 3 year, with a demonstrated history of working in the Computer Software industry. Skilled in Front-end Development.
-   I have 3 years of experience in HTML, CSS, SCSS, JavaScript, Bootstrap, tailwind CSS, StyledComponent, React JS and Next JS. Hence,
-   I have successfully completed several web projects from scratch. 
-   Yet, I learn continuously and never stop exploring new technologies.
-   So, I have also gained knowledge of Node JS, Express JS, Mongo DB, Python,
-   firebase and React Native with time.
+  about: `Welcome to my portfolio page! I am thrilled to share my passion for economics, computer science, and technical subjects with you. 
+    As a motivated and enthusiastic individual, I am constantly seeking opportunities to expand my knowledge and 
+    contribute to the ever-evolving world of technology and finance. In parallel, my love for computer science has led me to explore the exciting world of technology. 
+    From programming languages like Python and C++ to web development frameworks such as HTML, CSS, and JavaScript, I am well-versed in a wide range of technical skills. 
+    I enjoy solving complex problems through coding and developing innovative solutions that enhance efficiency and productivity.
   `,
 
   experience: [
@@ -23,66 +20,38 @@ export const info = {
         "- Fixing UI issues and integrating backend APIs with Redux Saga.",
       ],
     },
-
     {
-      name: "Coupon Approve (Remote)",
-      location: "Amsterdam, North Holland, Netherlands",
-      startDate: "Nov 2020",
-      endDate: "Apr 2022",
+      name: "Magna",
+      location: "Austria",
+      startDate: "Jun 2021",
+      endDate: "Jul 2021",
       description: [
-        "✓ Developing code in accordance with appropriate design and architectural rules",
-        "✓ Documenting, testing, deployment, maintenance, support of platforms, applications, databases and solutions",
-        "✓ Help and training of other colleagues",
-        "✓ Others tasks connected to the nature of the job",
-        "✓ Code Improvements and Refactoring ",
-        "✓ Best Practices and Rules Maintainer",
-      ],
-    },
-
-    {
-      name: "Interns Pakistan",
-      location: "Pakistan",
-      startDate: "Oct 2020",
-      endDate: "Nov 2020",
-      description: [
-        "An Immersive Internship Program that prepares me for the world's most in-demand career. A six weeks program completely based on learning and challenges.",
-        "The internship track is built by an industry expert that let develop the skills in the areas most important ",
+        "I have a passion for programming and using my skills to develop smaller VBA projects and create detailed flowcharts using Visio. VBA, or Visual Basic for Applications, is a powerful programming language that allows for automation and customization within various Microsoft Office applications. ",
       ],
     },
   ],
 
   education: [
     {
-      name: "Pakistan Institute of Professional Science & Technology (PIPS-TECH)",
-      location: "Karāchi, Sindh, Pakistan",
-      startDate: "2019",
-      endDate: "2022",
-      description: [
-        "Diploma of Associate Engineering,  Computer Information Technology (CIT)",
-      ],
-    },
-    {
-      name: "Govt. Degree Boys College Buffer Zone",
-      location: "Karāchi, Sindh, Pakistan",
+      name: "HTL Electronics and Computer Engineering",
+      location: "Pinkafeld",
       startDate: "2018",
-      endDate: "2020",
-      description: ["Intermediate, Pre-Engineering"],
+      endDate: "2023",
+      description: ["Robotics"],
     },
     {
-      name: "Ghazi Foundation Schools & Colleges",
-      location: "Karāchi, Sindh, Pakistan",
-      startDate: "2016",
-      endDate: "2018",
-      description: ["Matriculation,  Computer Science"],
+      name: "Realgymnasium Hartberg",
+      location: "Hartberg",
+      startDate: "2011",
+      endDate: "2016",
+      description: ["Mathematics, Science"],
     },
   ],
 
   socialMedia: {
-    facebook: "https://www.facebook.com/profile.php?id=100022899849583",
-    twitter: "https://twitter.com/Uzzii_21",
-    github: "https://github.com/uzzii-21",
-    email: "uzairahmed@74372gmail.com",
-    linkedin: "https://www.linkedin.com/in/uzzii21/",
+    github: "https://github.com/EliasNowak",
+    email: "nowakelias@outlook.com",
+    linkedin: "https://www.linkedin.com/in/elias-nowak-a71072242/",
   },
 
   projects: [
