@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # eliasnowak.github.io
 =======
 # Portfolio Website - Astro
