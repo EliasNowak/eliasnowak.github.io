@@ -16,7 +16,7 @@ export const info = {
       startDate: "Jun 2021",
       endDate: "Jul 2021",
       description: [
-        "I have a passion for programming and using my skills to develop smaller VBA projects and create detailed flowcharts using Visio. VBA, or Visual Basic for Applications, is a powerful programming language that allows for automation and customization within various Microsoft Office applications. ",
+        "I developed smaller VBA projects and created detailed flowcharts using Visio. VBA, or Visual Basic for Applications, is a powerful programming language that allows for automation and customization within various Microsoft Office applications. ",
       ],
     },
   ],
