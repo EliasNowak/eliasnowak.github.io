@@ -46,11 +46,19 @@ export const info = {
 
   projects: [
     {
-      title: "Astro Portfolio",
+      title: "Line-Follower",
       isFeatured: true,
-      thumbnail: "/assets/images/astro-portfolio.png",
-      githubUrl: "https://github.com/uzzii-21/astro-portfolio",
-      liveUrl: "https://astro-portfolio-uzair.vercel.app/",
+      thumbnail: "/assets/images/VisionTracker-portfolio.png",
+      githubUrl: "https://github.com/EliasNowak/Line-Follower",
+      liveUrl: "",
+    },
+    {
+      title: "Pictobot",
+      isFeatured: true,
+      thumbnail: "/assets/images/Pictobot-portfolio.png",
+      githubUrl: "",
+      liveUrl:
+        "https://www.wirtschaftszeit.at/news/becom-zeichnet-beste-diplomarbeit-der-htl-pinkafeld-mit-innovation-award-aus/",
     },
   ],
 };
