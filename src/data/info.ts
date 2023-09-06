@@ -32,8 +32,8 @@ export const info = {
     {
       name: "Realgymnasium Hartberg",
       location: "Hartberg",
-      startDate: "2011",
-      endDate: "2016",
+      startDate: "2014",
+      endDate: "2018",
       description: ["Mathematics, Science"],
     },
   ],
