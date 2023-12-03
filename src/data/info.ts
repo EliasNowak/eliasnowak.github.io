@@ -2,11 +2,9 @@ export const info = {
   baseUrl: "https://astro-portfolio-uzair.vercel.app",
   name: "Elias Nowak",
   jobDescription: "Web Developer",
-  about: `Welcome to my portfolio page! I am thrilled to share my passion for economics, computer science, and technical subjects with you. 
-    As a motivated and enthusiastic individual, I am constantly seeking opportunities to expand my knowledge and 
-    contribute to the ever-evolving world of technology and finance. In parallel, my love for computer science has led me to explore the exciting world of technology. 
-    From programming languages like Python and C++ to web development frameworks such as HTML, CSS, and JavaScript, I am well-versed in a wide range of technical skills. 
-    I enjoy solving complex problems through coding and developing innovative solutions that enhance efficiency and productivity.
+  about: `Currently reading: Against the Gods The Remarkable Story of Risk
+  Last updated on 28th November from home in Austria.
+  
   `,
 
   experience: [
