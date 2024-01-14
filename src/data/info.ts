@@ -2,7 +2,6 @@ export const info = {
   baseUrl: "https://astro-portfolio-uzair.vercel.app",
   name: "Elias Nowak",
   jobDescription: "Web Developer",
-  about: `Currently reading: Against the Gods The Remarkable Story of Risk`,
   last_updated: "Last updated on 28th December from home in Austria.",
   experience: [
     {

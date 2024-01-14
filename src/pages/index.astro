@@ -20,70 +20,53 @@ const featureProjects = info.projects.reduce((accumulator, project) => {
   <head>
     <MetaHead
       title={"Portfolio"}
-      description={info.about}
       ogImageUrl={"/assets/images/profile.png"}
     />
   </head>
 
   <body>
     <Layout>
-      <Hero name={info.name} about={info.about} />
+      <Hero name={info.name}  />
       <!-- New section for priorities -->
-      <p class="w-[15rem] dark:text-light mt-8">{info.last_updated}<br></br></p>
-      <h2 class="w-[25rem] dark:text-light mt-8 ">Priorities</h2>
-      <div class="w-full">
-        <div class="flex flex-col items-stretch content-stretch">
-            <div>
-                <p class="w-[15rem] dark:text-light mt-16 mx-4">Becoming an Embedded Software Engineer. Working on projects to expand knowledge .</p>
-            </div> 
-            <div>
-                <p class="w-[15rem] dark:text-light mt-16 mx-4">Becoming an Investor. Build my Portfolio and backtesting different strategies. Expand financial knowledge.</p>
-            </div>
-            <div>
-                <p class="w-[15rem] dark:text-light mt-16 mx-4">Becoming an Athlete. 80 push-ups. 20 pull-ups. Running a half marathon.</p>
-            </div>
-        </div>
-      </div>
-      <Experience title={"EXPERIENCE"} details={info.experience} />
-      <Experience title={"EDUCATION"} details={info.education} />
       <section id="now">
         <div class="mb-5">
-          <h2>What I'm Doing Now</h2>
-          <p>
+          <h2 class="text-white">What I'm Doing Now</h2>
+          <p class="text-white">
             inspired by Derek Sivers
           </p>
         </div>
 
-        <p class="mb-5">
-          📚Currently reading: Love And Math by Edward Frenkel
+        <p class="mb-5 text-white">
+          📚Currently reading: Basic Economics by Thomas Sowell
         </p>
         <div class="mb-5">
-          <h2 class="mb-2">Priorities</h2>
+          <h2 class="mb-2 text-white">Priorities</h2>
           <div class="grid grid-rows-1 gap-4 text-justify">
-            <p>
-              <span class="font-semibold text-skin-accent"
-                >Finish mandatory service.<br /></span
-              > I want to finish my 6-month mandatory service at the Austrian
-              Armed Forces as a trained paramedic and in good health.
-            </p>
-            <p>
-              <span class="font-semibold text-skin-accent"
+            <p class="text-white">
+              <span class="font-semibold text-skin-accent text-white"
                 >Becoming an Engineer.<br /></span
-              > Trying to secure an internship at an engineering company, working
-              in the field of robotics, ai and software development. Maybe live in
+              > Trying to secure an job at an engineering company, working
+              in the field of software development. live in
               a different city for work and gain experience on working in tech and
               social interactions.
             </p>
-            <p>
-              <span class="font-semibold text-skin-accent"
-                >Get more fit and athletic.<br /></span
-              > Hit the gym more often and build strength and duration. Try out
-              some martial arts and start rowing, lol.
+            <p class="text-white">
+              <span class="font-semibold text-skin-accent text-white"
+                >Start building my investment-portfolio.<br /></span
+              > In the last year I gained huge knowledge in investing in stocks and options. 
+                Now I want to build my active managed portfolio. 
+            </p>
+            <p class="text-white">
+              <span class="font-semibold text-skin-accent text-white"
+                >Get athletic.<br /></span
+              > Run a half marathon. 20 pull-ups. 80 push-ups
             </p>
           </div>
         </div>
-        <p class="italic">Last updated on 10th December, before going to sleep</p>
+        <p class="italic text-white">Last updated on 14th January, before going to sleep</p>
     </section>
+      <Experience title={"EXPERIENCE"} details={info.experience} />
+      <Experience title={"EDUCATION"} details={info.education} />
       <section>
         <h2 class="w-[15rem] dark:text-light mt-16">PROJECTS</h2>
         <ProjectsWrapper projects={featureProjects} />
