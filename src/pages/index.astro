@@ -6,7 +6,6 @@ import Hero from "@components/home/Hero.astro";
 import Experience from "@components/home/Experience.astro";
 import ProjectsWrapper from "@components/general/ProjectsWrapper.astro";
 import MetaHead from "@components/general/MetaHead.astro";
-import LinkButton from "@components/LinkButton.astro";
 
 const featureProjects = info.projects.reduce((accumulator, project) => {
   if (accumulator.length < 6 && project.isFeatured) {
@@ -51,9 +50,7 @@ const featureProjects = info.projects.reduce((accumulator, project) => {
         <div class="mb-5">
           <h2>What I'm Doing Now</h2>
           <p>
-            inspired by <LinkButton href="https://sive.rs/now" target="_blank">
-              Derek Sivers
-            </LinkButton>
+            inspired by Derek Sivers
           </p>
         </div>
 
