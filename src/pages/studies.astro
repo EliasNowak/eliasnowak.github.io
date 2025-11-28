@@ -1,0 +1,80 @@
+---
+import Layout from "@layouts/Layout.astro";
+import MetaHead from "@components/general/MetaHead.astro";
+import { studiesData } from "../data/studies";
+
+const { maxECTS, currentECTS, averageGrade, courses } = studiesData;
+const remainingECTS = maxECTS - currentECTS;
+const progress = maxECTS > 0 ? ((currentECTS / maxECTS) * 100).toFixed(1) : 0;
+const progressWidth = `${progress}%`;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <MetaHead
+      title={"Studies Dashboard"}
+      ogImageUrl={"/assets/images/profile.png"}
+    />
+  </head>
+
+  <body>
+    <Layout>
+      <section class="py-16">
+        <h1 class="text-5xl font-bold dark:text-light mb-12">Studies Dashboard</h1>
+        
+        <!-- Stats Overview -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          <!-- Total ECTS Card -->
+          <div class="bg-slate-50 dark:bg-[#202020] rounded-lg p-8 border border-slate-200 dark:border-slate-700">
+            <p class="text-sm uppercase tracking-wide mb-2 dark:text-light opacity-60">Total ECTS</p>
+            <p class="text-4xl font-bold dark:text-light">{currentECTS}<span class="text-2xl opacity-60">/{maxECTS}</span></p>
+            <div class="mt-4 bg-slate-200 dark:bg-slate-700 rounded-full h-2 overflow-hidden">
+              <div class="bg-blue-500 h-full rounded-full transition-all" style={{width: progressWidth}}></div>
+            </div>
+            <p class="text-sm mt-2 dark:text-light opacity-60">{progress}% Complete</p>
+          </div>
+
+          <!-- Average Grade Card -->
+          <div class="bg-slate-50 dark:bg-[#202020] rounded-lg p-8 border border-slate-200 dark:border-slate-700">
+            <p class="text-sm uppercase tracking-wide mb-2 dark:text-light opacity-60">Average Grade</p>
+            <p class="text-4xl font-bold dark:text-light">{averageGrade}</p>
+            <p class="text-sm mt-4 dark:text-light opacity-60">European (Austria) grading system</p>
+          </div>
+
+          <!-- Remaining ECTS Card -->
+          <div class="bg-slate-50 dark:bg-[#202020] rounded-lg p-8 border border-slate-200 dark:border-slate-700">
+            <p class="text-sm uppercase tracking-wide mb-2 dark:text-light opacity-60">Remaining ECTS</p>
+            <p class="text-4xl font-bold dark:text-light">{remainingECTS}</p>
+            <p class="text-sm mt-4 dark:text-light opacity-60">To complete</p>
+          </div>
+        </div>
+
+        <!-- Courses List -->
+        <div class="bg-slate-50 dark:bg-[#202020] rounded-lg border border-slate-200 dark:border-slate-700 overflow-hidden">
+          <div class="p-6 border-b border-slate-200 dark:border-slate-700">
+            <h2 class="text-2xl font-semibold dark:text-light">Accomplished Courses</h2>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full">
+              <thead class="bg-slate-100 dark:bg-[#1a1a1a]">
+                <tr>
+                  <th class="text-left p-4 dark:text-light font-semibold">Course</th>
+                  <th class="text-center p-4 dark:text-light font-semibold">ECTS</th>
+                </tr>
+              </thead>
+              <tbody>
+                {courses.map((course, index) => (
+                  <tr class={`border-t border-slate-200 dark:border-slate-700 ${index % 2 === 0 ? '' : 'bg-slate-50/50 dark:bg-[#181818]'}`}>
+                    <td class="p-4 dark:text-light">{course.name}</td>
+                    <td class="p-4 text-center dark:text-light">{course.ects}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </Layout>
+  </body>
+</html>

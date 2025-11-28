@@ -30,40 +30,14 @@ const featureProjects = info.projects.reduce((accumulator, project) => {
       <!-- New section for priorities -->
       <section id="now">
         <div class="mb-5">
-          <h2 class="text-white">What I'm Doing Now</h2>
-          <p class="text-white">
-            inspired by Derek Sivers
-          </p>
-        </div>
-
-        <p class="mb-5 text-white">
-          📚Currently reading: Basic Economics by Thomas Sowell
-        </p>
-        <div class="mb-5">
           <h2 class="mb-2 text-white">Priorities</h2>
           <div class="grid grid-rows-1 gap-4 text-justify">
-            <p class="text-white">
-              <span class="font-semibold text-skin-accent text-white"
-                >Becoming an Engineer.<br /></span
-              > Trying to secure an job at an engineering company, working
-              in the field of software development. live in
-              a different city for work and gain experience on working in tech and
-              social interactions.
-            </p>
-            <p class="text-white">
-              <span class="font-semibold text-skin-accent text-white"
-                >Start building my investment-portfolio.<br /></span
-              > In the last year I gained huge knowledge in investing in stocks and options. 
-                Now I want to build my active managed portfolio. 
-            </p>
-            <p class="text-white">
-              <span class="font-semibold text-skin-accent text-white"
-                >Get athletic.<br /></span
-              > Run a half marathon. 20 pull-ups. 80 push-ups
-            </p>
+            {info.about.map((item) => (
+              <p class="text-white">{item}</p>
+            ))}
           </div>
         </div>
-        <p class="italic text-white">Last updated on 14th January, before going to sleep</p>
+        <p class="italic text-white">Last updated on 28th November 2025</p>
     </section>
       <Experience title={"EXPERIENCE"} details={info.experience} />
       <Experience title={"EDUCATION"} details={info.education} />
