@@ -14,6 +14,7 @@ const progressWidth = `${progress}%`;
   <head>
     <MetaHead
       title={"Studies Dashboard"}
+      description={"Elias Nowak's TU Wien Electrical Engineering and Information Technology study progress and completed coursework."}
       ogImageUrl={"/assets/images/profile.png"}
     />
   </head>
@@ -21,7 +22,11 @@ const progressWidth = `${progress}%`;
   <body>
     <Layout>
       <section class="py-16">
-        <h1 class="text-5xl font-bold dark:text-light mb-12">Studies Dashboard</h1>
+        <div class="mb-12">
+          <p class="text-sm font-semibold uppercase tracking-[0.18em] text-blue mb-3">TU Wien · BSc ETIT</p>
+          <h1 class="text-5xl font-bold dark:text-light mb-4">Studies Dashboard</h1>
+          <p class="dark:text-gray max-w-2xl">Progress in Electrical Engineering and Information Technology. Updated from the official transcript in August 2026.</p>
+        </div>
         
         <!-- Stats Overview -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
@@ -39,7 +44,7 @@ const progressWidth = `${progress}%`;
           <div class="bg-slate-50 dark:bg-[#202020] rounded-lg p-8 border border-slate-200 dark:border-slate-700">
             <p class="text-sm uppercase tracking-wide mb-2 dark:text-light opacity-60">Average Grade</p>
             <p class="text-4xl font-bold dark:text-light">{averageGrade}</p>
-            <p class="text-sm mt-4 dark:text-light opacity-60">European (Austria) grading system</p>
+            <p class="text-sm mt-4 dark:text-light opacity-60">ECTS-weighted · 1 is best</p>
           </div>
 
           <!-- Remaining ECTS Card -->
@@ -51,23 +56,33 @@ const progressWidth = `${progress}%`;
         </div>
 
         <!-- Courses List -->
-        <div class="bg-slate-50 dark:bg-[#202020] rounded-lg border border-slate-200 dark:border-slate-700 overflow-hidden">
-          <div class="p-6 border-b border-slate-200 dark:border-slate-700">
-            <h2 class="text-2xl font-semibold dark:text-light">Accomplished Courses</h2>
+        <div class="w-full bg-slate-50 dark:bg-[#202020] rounded-lg border border-slate-200 dark:border-slate-700 overflow-hidden">
+          <div class="px-4 py-4 border-b border-slate-200 dark:border-slate-700">
+            <h2 class="text-xl font-semibold dark:text-light">Accomplished Courses</h2>
           </div>
           <div class="overflow-x-auto">
-            <table class="w-full">
+            <table class="w-full min-w-[48rem] table-fixed text-sm">
+              <colgroup>
+                <col />
+                <col class="w-24" />
+                <col class="w-24" />
+                <col class="w-36" />
+              </colgroup>
               <thead class="bg-slate-100 dark:bg-[#1a1a1a]">
                 <tr>
-                  <th class="text-left p-4 dark:text-light font-semibold">Course</th>
-                  <th class="text-center p-4 dark:text-light font-semibold">ECTS</th>
+                  <th class="text-left px-3 py-3 dark:text-light font-semibold">Course</th>
+                  <th class="text-right px-3 py-3 dark:text-light font-semibold">Type</th>
+                  <th class="text-right px-3 py-3 dark:text-light font-semibold">ECTS</th>
+                  <th class="text-right px-3 py-3 dark:text-light font-semibold">Completed</th>
                 </tr>
               </thead>
               <tbody>
                 {courses.map((course, index) => (
                   <tr class={`border-t border-slate-200 dark:border-slate-700 ${index % 2 === 0 ? '' : 'bg-slate-50/50 dark:bg-[#181818]'}`}>
-                    <td class="p-4 dark:text-light">{course.name}</td>
-                    <td class="p-4 text-center dark:text-light">{course.ects}</td>
+                    <td class="px-3 py-3 dark:text-light truncate" title={course.name}>{course.name}</td>
+                    <td class="px-3 py-3 text-right dark:text-gray">{course.type}</td>
+                    <td class="px-3 py-3 text-right dark:text-light">{course.ects}</td>
+                    <td class="px-3 py-3 text-right dark:text-gray whitespace-nowrap">{course.date}</td>
                   </tr>
                 ))}
               </tbody>

@@ -19,26 +19,29 @@ const featureProjects = info.projects.reduce((accumulator, project) => {
 <html lang="en">
   <head>
     <MetaHead
-      title={"Portfolio"}
+      title={"Embedded Systems & Wearables"}
+      description={"Elias Nowak builds wearable hardware and embedded systems in Vienna."}
       ogImageUrl={"/assets/images/profile.png"}
     />
   </head>
 
   <body>
     <Layout>
-      <Hero name={info.name}  />
-      <!-- New section for priorities -->
-      <section id="now">
-        <div class="mb-5">
-          <h2 class="mb-2 text-white">Priorities</h2>
-          <div class="grid grid-rows-1 gap-4 text-justify">
-            {info.about.map((item) => (
-              <p class="text-white">{item}</p>
-            ))}
-          </div>
+      <Hero name={info.name} about={info.jobDescription} />
+      <section id="now" class="mb-20">
+        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-blue mb-3">Current priority</p>
+        <div class="max-w-3xl py-2">
+          <p class="text-sm dark:text-gray">CareLoop Labs · Co-Founder & Embedded Systems Lead · Since 2025</p>
+          <h2 class="mt-4 text-2xl sm:text-3xl dark:text-light max-w-2xl leading-tight">A screen-free wearable connecting environmental exposure with physiology.</h2>
+          <p class="mt-4 max-w-2xl dark:text-gray leading-relaxed">
+            CareLoop brings environmental and physiological sensor data together on one research-ready timeline.
+          </p>
+          <p class="mt-5 text-sm dark:text-gray" aria-label="CareLoop technology">C/C++ · Zephyr · Nordic nRF52 · BLE</p>
+          <a class="inline-flex mt-5 text-blue font-semibold hover:underline underline-offset-4" href="https://github.com/careloop-labs" target="_blank" rel="noreferrer">
+            View CareLoop on GitHub ↗
+          </a>
         </div>
-        <p class="italic text-white">Last updated on 28th November 2025</p>
-    </section>
+      </section>
       <Experience title={"EXPERIENCE"} details={info.experience} />
       <Experience title={"EDUCATION"} details={info.education} />
       <section>

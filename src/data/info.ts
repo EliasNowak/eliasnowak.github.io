@@ -1,55 +1,60 @@
 export const info = {
-  baseUrl: "https://astro-portfolio-uzair.vercel.app",
+  baseUrl: "https://eliasnowak.github.io",
   name: "Elias Nowak",
-  jobDescription: "Web Developer",
+  jobDescription: "Embedded Systems Engineer & Wearable Builder",
   about: [
-    "Building an open-source health wearable focused on high-quality biosignals, predictive insights, and privacy-first design.",
-    "Studying Electrical Engineering at TU Vienna.",
-    "Working as a C++ Embedded Software Developer, writing production-grade firmware and security-critical systems.",
+    "Building CareLoop: a screen-free wearable that aligns environmental exposure with physiological signals on one timeline.",
+    "Leading embedded firmware and system architecture across Zephyr, Nordic nRF52, BLE and multi-sensor data acquisition.",
+    "Studying Electrical Engineering and Information Technology at TU Wien while working on production embedded systems.",
   ],
-  last_updated: "Last updated on 28th December from home in Austria.",
+  last_updated: "Last updated in August 2026 from Vienna, Austria.",
   experience: [
     {
-      name: "RISE",
-      location: "Vienna",
+      name: "CareLoop Labs — Co-Founder & Embedded Systems Lead",
+      location: "Vienna, Austria",
+      startDate: "2025",
+      endDate: "Present",
+      description: [
+        "Building a screen-free wearable that synchronizes environmental exposure — particulate matter, VOC/NOx, temperature and humidity — with PPG, EDA, skin temperature and IMU signals on a single timeline.",
+        "Leading embedded firmware and system architecture using C/C++, Zephyr and Nordic nRF52, including BLE, sensor integration, data acquisition, hardware bring-up and automated test infrastructure.",
+        "Co-developing low-power wearable hardware and conducting customer discovery with researchers in environmental medicine, wearable sensing and clinical research.",
+      ],
+      link: "https://github.com/careloop-labs",
+      linkLabel: "github.com/careloop-labs",
+    },
+    {
+      name: "RISE — Embedded Software Engineer",
+      location: "Vienna, Austria",
       startDate: "2024",
       endDate: "Present",
       description: [
-        "Working as an Embedded Software Engineer, developing production-grade firmware and security-critical systems using C++.",
-      ],
-    },
-    {
-      name: "Magna",
-      location: "Graz",
-      startDate: "Jun 2021",
-      endDate: "Jul 2021",
-      description: [
-        "I developed smaller VBA projects and created detailed flowcharts using Visio. VBA, or Visual Basic for Applications, is a powerful programming language that allows for automation and customization within various Microsoft Office applications. ",
+        "Developing production firmware for access-control systems in C++ and contributing to MIFARE DESFire EV3 security based on ISO/IEC 14443.",
+        "Implementing encryption, hashing and signature verification with OpenSSL, plus a Python/Flask key-management service for encrypted credentials.",
+        "Built an access-card personalization tool that automates secure card initialization with unique keys.",
       ],
     },
   ],
 
   education: [
     {
-      name: "TU Vienna - Electrical Engineering",
-      location: "Vienna",
+      name: "TU Wien — BSc Electrical Engineering and Information Technology",
+      location: "Vienna, Austria",
       startDate: "2024",
       endDate: "Present",
-      description: ["Embedded Systems, Computer Architecture, Electrodynamics"],
+      description: [
+        "Expected graduation: June 2027.",
+        "Focus on computer architecture, embedded systems, low-level programming and open-source hardware.",
+      ],
     },
     {
-      name: "HTL Electronics and Computer Engineering",
-      location: "Pinkafeld",
+      name: "HTL Pinkafeld — Electronics and Computer Engineering",
+      location: "Pinkafeld, Austria",
       startDate: "2018",
       endDate: "2023",
-      description: ["Robotics"],
-    },
-    {
-      name: "Realgymnasium Hartberg",
-      location: "Hartberg",
-      startDate: "2014",
-      endDate: "2018",
-      description: ["Mathematics, Science"],
+      description: [
+        "Robotics specialization with hands-on C/C++ microcontroller work across STM32, ESP32, Arduino and Raspberry Pi.",
+        "Built custom teaching robots, a camera-based line follower and a CPU from discrete ICs programmed in assembly.",
+      ],
     },
   ],
 

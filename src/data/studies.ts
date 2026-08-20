@@ -1,67 +1,35 @@
 export const studiesData = {
   maxECTS: 180,
-  currentECTS: 60,
-  averageGrade: 2.1,
+  currentECTS: 112,
+  averageGrade: 1.98,
   courses: [
-    {
-      name: "VO Materialien der Elektrotechnik",
-      ects: 3,
-    },
-    {
-      name: "UE Mathematik 2 für ET",
-      ects: 3,
-    },
-    {
-      name: "VU Systemnahes Programmieren",
-      ects: 7,
-    },
-    {
-      name: "UE Elektrotechnik 2",
-      ects: 4,
-    },
-    {
-      name: "VO Mathematik 2 für ET",
-      ects: 5,
-    },
-    {
-      name: "VO Digitale Systeme",
-      ects: 2.5,
-    },
-    {
-      name: "VO Elektrotechnik 1",
-      ects: 5,
-    },
-    {
-      name: "UE Elektrotechnik 1",
-      ects: 4,
-    },
-    {
-      name: "UE Digitale Systeme",
-      ects: 1.5,
-    },
-    {
-      name: "UE Mathematik 1 für ET",
-      ects: 3,
-    },
-    {
-      name: "VO Mathematik 1 für ET",
-      ects: 6,
-    },
-    {
-      name: "VU Einführung in das wissenschaftliche Programmieren",
-      ects: 5,
-    },
-    {
-      name: "PR Wahlpraktikum",
-      ects: 6,
-    },
-    {
-      name: "VU Orientierung ETIT",
-      ects: 1,
-    },
-    {
-      name: "VU Angleichungskurs Mathematik",
-      ects: 3,
-    },
+    { name: "Elektronische Bauelemente", type: "VU", ects: 4, grade: "3", date: "08.07.2026" },
+    { name: "Elektrodynamik", type: "VU", ects: 8, grade: "1", date: "24.06.2026" },
+    { name: "Zeitdiskrete Signale und Systeme", type: "VU", ects: 4, grade: "2", date: "16.06.2026" },
+    { name: "Materialien der Elektrotechnik", type: "LU", ects: 1, grade: "1", date: "27.03.2026" },
+    { name: "Zeitkontinuierliche Signale und Systeme", type: "VU", ects: 4.5, grade: "2", date: "19.03.2026" },
+    { name: "Mathematik 3 für ET", type: "VO", ects: 4, grade: "2", date: "13.03.2026" },
+    { name: "Halbleiterphysik", type: "VU", ects: 4.5, grade: "1", date: "09.03.2026" },
+    { name: "Technik und Gesellschaft", type: "VO", ects: 3, grade: "1", date: "20.02.2026" },
+    { name: "Elektrotechnik 2", type: "VO", ects: 5, grade: "4", date: "11.02.2026" },
+    { name: "Mikrocomputer", type: "VU", ects: 4, grade: "1", date: "26.01.2026" },
+    { name: "Mathematik 3 für ET", type: "UE", ects: 2, grade: "2", date: "19.01.2026" },
+    { name: "Messtechnik", type: "VO", ects: 4, grade: "3", date: "09.01.2026" },
+    { name: "Fachvertiefung – Softwareentwicklung", type: "VU", ects: 5, grade: "1", date: "16.12.2025" },
+    { name: "Materialien der Elektrotechnik", type: "VO", ects: 3, grade: "1", date: "14.07.2025" },
+    { name: "Mathematik 2 für ET", type: "UE", ects: 3, grade: "3", date: "30.06.2025" },
+    { name: "Systemnahes Programmieren", type: "VU", ects: 7, grade: "1", date: "27.06.2025" },
+    { name: "Elektrotechnik 2", type: "UE", ects: 4, grade: "2", date: "26.06.2025" },
+    { name: "Mathematik 2 für ET", type: "VO", ects: 5, grade: "3", date: "26.06.2025" },
+    { name: "Digitale Systeme", type: "VO", ects: 2.5, grade: "2", date: "27.03.2025" },
+    { name: "Elektrotechnik 1", type: "VO", ects: 5, grade: "4", date: "03.03.2025" },
+    { name: "Elektrotechnik 1", type: "UE", ects: 4, grade: "1", date: "30.01.2025" },
+    { name: "Digitale Systeme", type: "UE", ects: 1.5, grade: "2", date: "24.01.2025" },
+    { name: "Mathematik 1 für ET", type: "UE", ects: 3, grade: "2", date: "23.01.2025" },
+    { name: "Mathematik 1 für ET", type: "VO", ects: 6, grade: "3", date: "16.01.2025" },
+    { name: "Einführung in das wissenschaftliche Programmieren", type: "VU", ects: 5, grade: "1", date: "16.01.2025" },
+    { name: "Wahlpraktikum", type: "PR", ects: 6, grade: "Pass", date: "18.11.2024" },
+    { name: "Orientierung ETIT", type: "VU", ects: 1, grade: "Pass", date: "23.10.2024" },
+    { name: "Angleichungskurs Mathematik", type: "VU", ects: 3, grade: "Pass", date: "30.09.2024" },
   ],
 };
