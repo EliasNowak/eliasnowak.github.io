@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>IRL Challenge</title>
+
+<!--
+  Invite landing page for the IRL app.
+
+  It lives here rather than next to the API because Supabase's function gateway
+  rewrites text/html to text/plain and adds `CSP: default-src 'none'; sandbox`,
+  so a page served from *.supabase.co renders as source code and gets no link
+  preview. GitHub Pages serves real HTML.
+
+  The page is static; the challenge is fetched client-side from the Supabase
+  Edge Function, which already sends `access-control-allow-origin: *`.
+  Consequence: the og: tags below are generic, because a static host cannot
+  render per-challenge meta tags.
+-->
+<meta property="og:type" content="website">
+<meta property="og:title" content="IRL Challenge 🔥">
+<meta property="og:description" content="Someone invited you to a challenge. Tap to see the leaderboard and join.">
+<meta property="og:url" content="https://eliasnowak.github.io/irl/">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#111113">
+
+<style>
+  :root { color-scheme: dark }
+  * { box-sizing: border-box }
+  body {
+    margin: 0; min-height: 100dvh; display: grid; place-items: center; padding: 28px;
+    background: #111113; color: #fff; text-align: center;
+    font: 400 17px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  }
+  .card { width: 100%; max-width: 380px }
+  h1 { font-size: 34px; font-weight: 800; margin: 0 0 14px; letter-spacing: -.02em }
+  .meta { color: #9a9aa2; font-size: 17px; margin: 6px 0 }
+  #countdown { font-variant-numeric: tabular-nums; font-weight: 700; color: #fff }
+  a.cta {
+    display: block; margin: 30px 0 0; padding: 18px; border-radius: 20px;
+    background: linear-gradient(135deg, #ff7500, #fa3d6b);
+    color: #fff; font-size: 19px; font-weight: 700; text-decoration: none;
+  }
+  .help { margin-top: 22px; font-size: 14px; color: #7a7a82; opacity: 0; transition: opacity .3s }
+  .help.show { opacity: 1 }
+  .board { margin: 26px 0 0; padding: 0; list-style: none; text-align: left }
+  .board li {
+    display: flex; align-items: center; gap: 12px;
+    padding: 13px 16px; border-radius: 14px; background: #1c1c1f; margin-bottom: 8px;
+  }
+  .board .rank { width: 26px; color: #7a7a82; font-weight: 700; text-align: center }
+  .board .name { flex: 1; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap }
+  .board .score { font-weight: 800; font-variant-numeric: tabular-nums }
+  [hidden] { display: none !important }
+</style>
+</head>
+
+<body>
+<div class="card">
+  <div id="loading" class="meta">Loading…</div>
+
+  <div id="challenge" hidden>
+    <h1 id="name"></h1>
+    <p class="meta" id="competing"></p>
+    <p class="meta" id="goal" hidden></p>
+    <p class="meta">Ends in <span id="countdown">…</span></p>
+    <ol class="board" id="board"></ol>
+    <a class="cta" id="open">Open in IRL</a>
+    <p class="help" id="help">Nothing happened? You need the IRL app installed on this iPhone to join.</p>
+  </div>
+
+  <div id="error" hidden>
+    <h1 id="errorTitle">Challenge not found</h1>
+    <p class="meta" id="errorBody">This invite link has expired, or the code is wrong.</p>
+  </div>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  var API = "https://xwldtamgfxpwdsfgqmyw.supabase.co/functions/v1/challenges";
+
+  var el = function (id) { return document.getElementById(id); };
+
+  function show(which) {
+    el("loading").hidden = which !== "loading";
+    el("challenge").hidden = which !== "challenge";
+    el("error").hidden = which !== "error";
+  }
+
+  function fail(title, body) {
+    el("errorTitle").textContent = title;
+    el("errorBody").textContent = body;
+    show("error");
+  }
+
+  // Accept ?c=<code>, #<code>, or /irl/<code> so an older or hand-typed link
+  // still resolves. Validated against the server's own id alphabet.
+  function readCode() {
+    var q = new URLSearchParams(location.search).get("c");
+    var candidate = q || location.hash.replace(/^#/, "") ||
+      location.pathname.replace(/.*\/irl\/?/, "");
+    return /^[a-z0-9]{4,16}$/.test(candidate) ? candidate : null;
+  }
+
+  function countdownText(endMs) {
+    var d = endMs - Date.now();
+    if (d <= 0) return "— ended";
+    var h = Math.floor(d / 3600000), m = Math.floor(d / 60000) % 60, s = Math.floor(d / 1000) % 60;
+    if (h >= 24) return Math.floor(h / 24) + "d " + (h % 24) + "h";
+    return h > 0 ? h + "h " + m + "m" : m + "m " + s + "s";
+  }
+
+  function renderBoard(players) {
+    var medals = ["🥇", "🥈", "🥉"];
+    var list = el("board");
+    list.textContent = "";
+    players.slice(0, 8).forEach(function (player, index) {
+      var row = document.createElement("li");
+      var rank = document.createElement("span");
+      rank.className = "rank";
+      rank.textContent = medals[index] || String(index + 1);
+      var name = document.createElement("span");
+      name.className = "name";
+      // textContent, never innerHTML — names are user input.
+      name.textContent = player.name;
+      var score = document.createElement("span");
+      score.className = "score";
+      score.textContent = player.score;
+      row.append(rank, name, score);
+      list.append(row);
+    });
+  }
+
+  function render(challenge, code) {
+    var count = challenge.players.length;
+
+    el("name").textContent = challenge.name + " 🔥";
+    el("competing").textContent =
+      count + (count === 1 ? " person is" : " people are") + " competing";
+
+    if (challenge.goal) {
+      el("goal").textContent = challenge.goal;
+      el("goal").hidden = false;
+    }
+
+    renderBoard(challenge.players);
+
+    var endMs = Date.parse(challenge.endsAt);
+    (function tick() {
+      el("countdown").textContent = countdownText(endMs);
+      if (endMs - Date.now() > 0) setTimeout(tick, 1000);
+    })();
+
+    var open = el("open");
+    open.href = "irl://challenge/" + code;
+    open.addEventListener("click", function () {
+      // Still here a moment later means the scheme did not resolve.
+      setTimeout(function () {
+        if (!document.hidden) el("help").classList.add("show");
+      }, 1500);
+    });
+
+    document.title = challenge.name + " — IRL Challenge";
+    show("challenge");
+  }
+
+  var code = readCode();
+  if (!code) {
+    fail("No challenge code", "Open the invite link you were sent, it should end in ?c=<code>.");
+    return;
+  }
+
+  fetch(API + "/api/challenges/" + code)
+    .then(function (response) {
+      if (response.status === 404) throw new Error("notfound");
+      if (!response.ok) throw new Error("http");
+      return response.json();
+    })
+    .then(function (challenge) { render(challenge, code); })
+    .catch(function (error) {
+      if (error && error.message === "notfound") {
+        fail("Challenge not found", "This invite link has expired, or the code is wrong.");
+      } else {
+        fail("Could not load challenge", "Check your connection and try again.");
+      }
+    });
+})();
+</script>
+</body>
+</html>
